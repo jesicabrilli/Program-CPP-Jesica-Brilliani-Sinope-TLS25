@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+    string word; 
+    cin >> word;
+
+    for(int i = 0; i < word.length(); i++){
+        if(word[i] == 'a' || word[i] == 'i' || word[i] == 'u' || word[i] == 'e' || word[i] == 'o' || 
+           word[i] == 'A' || word[i] == 'I' || word[i] == 'U' || word[i] == 'E' || word[i] == 'O'){
+            word.erase(i, 1);
+            i--;
+        }
+    }
+
+    string rword(word.length(), ' ');
+    for(int i = 0; i < word.length(); i++){
+        rword[i] = word[word.length()-1-i];
+    }
+
+    string ascii = to_string((int(word[0])));
+    if(rword.length() % 2 == 0){
+        rword.insert (rword.length()/2, ascii);
+    } else{
+        rword.insert ((rword.length()/2)+1, ascii);
+    }
+
+    cout << rword;
+}
